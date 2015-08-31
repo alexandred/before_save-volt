@@ -5,12 +5,10 @@ module Main
     def index
       page._test = Test.new
 
-      page._test.then do |test|
-        page._test_buffer = test.buffer
-        page._test_buffer._attribute = "test1"
-        page._test_buffer.save!.then do
-          tests << page._test
-        end
+      page._test_buffer = page._test.buffer
+      page._test_buffer._attribute = "test1"
+      page._test_buffer.save!.then do
+        tests << page._test
       end
 
     end
